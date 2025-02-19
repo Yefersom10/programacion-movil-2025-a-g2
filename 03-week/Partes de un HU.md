@@ -1,4 +1,10 @@
-# Partes De Historia De Usuario
+
+# HU
+
+Una Historia de Usuario es una descripción breve y simple de una funcionalidad del sistema desde la perspectiva del usuario final. Se utiliza en metodologías ágiles como Scrum para definir requerimientos de manera comprensible y centrada en el usuario.
+
+## Partes De Historia De Usuario
+
 
 ### 	Identificador único: 
 Un código o número que permite identificar y rastrear la historia (por ejemplo, HU-01).
