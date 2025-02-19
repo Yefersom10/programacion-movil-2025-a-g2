@@ -27,4 +27,4 @@ Indica la importancia de la historia en relación con otras (por ejemplo, alta, 
 
 ## Imagen de nuestra de una tarjeta de HU
 
-![Imagen representativa de Hu](./Img/img_muestra_HU.png)
+![Imagen representativa de Hu](./img/img_muestra_HU.png)
