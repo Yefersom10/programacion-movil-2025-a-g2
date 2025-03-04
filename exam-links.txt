@@ -1,0 +1,7 @@
+Aquí van los enlaces del examen
+
+trello: https://trello.com/invite/b/67c7008f98dea48fbd374bc2/ATTIcacaec5a77c8a191e4cf0a9e96a986251ADBA846/aplicacion-movil-para-la-gestion-y-control-de-vuelos
+
+Figma: https://www.figma.com/design/7yjxocRFB8EcAZP8STI3sG/Areolinea?node-id=0-1&t=ACQp3AR4Pye359Hb-1
+
+Repositorio: https://github.com/Yefersom10/programacion-movil-2025-a-g2.git
