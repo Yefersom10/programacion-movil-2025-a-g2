@@ -1,0 +1,7 @@
+LINKS
+
+FIGMA: https://www.figma.com/design/PZDvFhzdGo7RdBDV6tnrvo/GESTOR-DE-COMPUTADORES?node-id=0-1&t=YxScH3mbNB4T1UNv-1
+
+REPOSITORIO:
+
+https://github.com/Yefersom10/programacion-movil-2025-a-g2/tree/feature/exam
