@@ -1,0 +1,92 @@
+Aquí tienes el contenido completo en formato Markdown:  
+
+```md
+# Manual de Instalación de Ionic con React
+
+## Requisitos Previos
+Antes de instalar Ionic con React, asegúrese de tener los siguientes requisitos:
+
+- **Node.js** (v14 o superior): Descargue e instale desde [nodejs.org](https://nodejs.org/)
+- **npm** (v6 o superior) o **Yarn**
+- **Git** (Opcional, pero recomendado)
+
+## Instalación de Ionic CLI
+Ejecute el siguiente comando en la terminal para instalar Ionic CLI de manera global:
+
+```sh
+npm install -g @ionic/cli
+```
+
+Verifique la instalación con:
+
+```sh
+ionic --version
+```
+
+## Creación de un Proyecto Ionic con React
+Para crear un nuevo proyecto Ionic con React, ejecute:
+
+```sh
+ionic start myApp blank --type=react
+```
+
+### Opciones del comando:
+- `myApp` es el nombre del proyecto.
+- `blank` es la plantilla base (puede usarse `tabs` o `sidemenu` según necesidad).
+- `--type=react` indica que se usará React en lugar de Angular.
+
+Ingrese al directorio del proyecto:
+
+```sh
+cd myApp
+```
+
+## Ejecución del Proyecto
+Para ejecutar la aplicación en el navegador, use:
+
+```sh
+ionic serve
+```
+
+Esto abrirá la aplicación en el navegador en modo de desarrollo.
+
+## Construcción del Proyecto
+Para construir la aplicación para producción, ejecute:
+
+```sh
+ionic build
+```
+
+## Ejecución en un Dispositivo o Emulador
+Si desea probar la aplicación en un dispositivo físico o emulador, primero instale Capacitor:
+
+```sh
+npm install @capacitor/core @capacitor/cli
+```
+
+### Agregar Plataforma Android o iOS
+Para Android:
+
+```sh
+ionic cap add android
+```
+
+Para iOS:
+
+```sh
+ionic cap add ios
+```
+
+### Ejecutar en un Dispositivo
+Para ejecutar en un dispositivo conectado:
+
+```sh
+ionic cap run android --device
+```
+
+Para iOS (requiere macOS y Xcode):
+
+```sh
+ionic cap run ios --device
+```
+
