@@ -1,0 +1,223 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Gestión de Personal Médico</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="help-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header color="light">
+      <ion-card-subtitle>Ingrese los datos del personal</ion-card-subtitle>
+      <ion-card-title>Formulario de Personal Médico</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- Role Selector -->
+      <ion-item>
+        <ion-label>Rol</ion-label>
+        <ion-select [(ngModel)]="rol" placeholder="Seleccione un rol" interface="popover">
+          <ion-select-option value="Médico">Médico</ion-select-option>
+          <ion-select-option value="Enfermero">Enfermero</ion-select-option>
+          <ion-select-option value="Recepcionista">Recepcionista</ion-select-option>
+          <ion-select-option value="Paciente">Paciente</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- Basic Information -->
+      <ion-list lines="full">
+        <ion-list-header>
+          <ion-label>Información Básica</ion-label>
+        </ion-list-header>
+        
+        <ion-item>
+          <ion-label position="floating">Nombre <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input [(ngModel)]="nombre" required type="text"></ion-input>
+          <ion-note slot="helper">Ingrese el nombre completo</ion-note>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label position="floating">Apellido <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input [(ngModel)]="apellido" required type="text"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label position="floating">Edad <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input [(ngModel)]="edad" type="number" min="18" max="100"></ion-input>
+          <ion-note slot="helper">Debe ser mayor de 18 años</ion-note>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label position="floating">Correo electrónico <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input [(ngModel)]="correo" type="email"></ion-input>
+          <ion-note slot="error">Por favor ingrese un correo válido</ion-note>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label position="floating">Teléfono</ion-label>
+          <ion-input [(ngModel)]="telefono" type="tel"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <!-- Doctor-specific fields -->
+      <ion-list lines="full" *ngIf="rol === 'Médico'">
+        <ion-list-header>
+          <ion-label>Información de Médico</ion-label>
+        </ion-list-header>
+        
+        <ion-item>
+          <ion-label position="floating">Especialidad <ion-text color="danger">*</ion-text></ion-label>
+          <ion-select [(ngModel)]="especialidad" placeholder="Seleccione">
+            <ion-select-option value="Cardiología">Cardiología</ion-select-option>
+            <ion-select-option value="Dermatología">Dermatología</ion-select-option>
+            <ion-select-option value="Pediatría">Pediatría</ion-select-option>
+            <ion-select-option value="Neurología">Neurología</ion-select-option>
+            <ion-select-option value="Ginecología">Ginecología</ion-select-option>
+            <ion-select-option value="Otra">Otra</ion-select-option>
+          </ion-select>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label position="floating">Número de licencia médica <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input [(ngModel)]="numeroLicencia"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label position="floating">Años de experiencia</ion-label>
+          <ion-input [(ngModel)]="experiencia" type="number" min="0"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <!-- Nurse-specific fields -->
+      <ion-list lines="full" *ngIf="rol === 'Enfermero'">
+        <ion-list-header>
+          <ion-label>Información de Enfermero</ion-label>
+        </ion-list-header>
+        
+        <ion-item>
+          <ion-label>Turno asignado <ion-text color="danger">*</ion-text></ion-label>
+          <ion-select [(ngModel)]="turno" placeholder="Seleccione">
+            <ion-select-option value="Mañana">Mañana (6:00 - 14:00)</ion-select-option>
+            <ion-select-option value="Tarde">Tarde (14:00 - 22:00)</ion-select-option>
+            <ion-select-option value="Noche">Noche (22:00 - 6:00)</ion-select-option>
+          </ion-select>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label>Área de atención <ion-text color="danger">*</ion-text></ion-label>
+          <ion-select [(ngModel)]="areaAtencion" placeholder="Seleccione" multiple="true">
+            <ion-select-option value="Urgencias">Urgencias</ion-select-option>
+            <ion-select-option value="UCI">UCI</ion-select-option>
+            <ion-select-option value="Pediatría">Pediatría</ion-select-option>
+            <ion-select-option value="Cirugía">Cirugía</ion-select-option>
+            <ion-select-option value="Consulta Externa">Consulta Externa</ion-select-option>
+          </ion-select>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label position="floating">Certificaciones</ion-label>
+          <ion-textarea [(ngModel)]="certificaciones" rows="2"></ion-textarea>
+        </ion-item>
+      </ion-list>
+
+      <!-- Receptionist-specific fields -->
+      <ion-list lines="full" *ngIf="rol === 'Recepcionista'">
+        <ion-list-header>
+          <ion-label>Información de Recepcionista</ion-label>
+        </ion-list-header>
+        
+        <ion-item>
+          <ion-label>Horario laboral <ion-text color="danger">*</ion-text></ion-label>
+          <ion-select [(ngModel)]="horarioLaboral" placeholder="Seleccione">
+            <ion-select-option value="Completo">Tiempo completo</ion-select-option>
+            <ion-select-option value="Parcial">Tiempo parcial</ion-select-option>
+          </ion-select>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label position="floating">Extensión telefónica <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input [(ngModel)]="extensionTelefonica" type="number"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label position="floating">Idiomas</ion-label>
+          <ion-select [(ngModel)]="idiomas" multiple="true" placeholder="Seleccione">
+            <ion-select-option value="Español">Español</ion-select-option>
+            <ion-select-option value="Inglés">Inglés</ion-select-option>
+            <ion-select-option value="Francés">Francés</ion-select-option>
+            <ion-select-option value="Alemán">Alemán</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <!-- Patient-specific fields -->
+      <ion-list lines="full" *ngIf="rol === 'Paciente'">
+        <ion-list-header>
+          <ion-label>Información de Paciente</ion-label>
+        </ion-list-header>
+        
+        <ion-item>
+          <ion-label position="floating">Número de historia clínica <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input [(ngModel)]="historiaClinica"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label>Tipo de afiliación <ion-text color="danger">*</ion-text></ion-label>
+          <ion-select [(ngModel)]="tipoAfiliacion" placeholder="Seleccione">
+            <ion-select-option value="Premium">Premium</ion-select-option>
+            <ion-select-option value="Básico">Básico</ion-select-option>
+            <ion-select-option value="Subsidiado">Subsidiado</ion-select-option>
+          </ion-select>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label>Fecha de ingreso</ion-label>
+          <ion-datetime [(ngModel)]="fechaIngreso" displayFormat="DD/MM/YYYY"></ion-datetime>
+        </ion-item>
+      </ion-list>
+
+      <!-- Action buttons -->
+      <div class="ion-padding-top">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" size-md="6">
+              <ion-button expand="block" color="success" (click)="agregar()">
+                <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+                Agregar
+              </ion-button>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+              <ion-button expand="block" color="primary" (click)="modificar()">
+                <ion-icon name="create-outline" slot="start"></ion-icon>
+                Modificar
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12" size-md="6">
+              <ion-button expand="block" color="danger" (click)="eliminar()">
+                <ion-icon name="trash-outline" slot="start"></ion-icon>
+                Eliminar
+              </ion-button>
+            </ion-col>
+            <ion-col size="12" size-md="6">
+              <ion-button expand="block" color="tertiary" (click)="consultar()">
+                <ion-icon name="search-outline" slot="start"></ion-icon>
+                Consultar
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  
+  <!-- Toast for feedback -->
+  <ion-toast></ion-toast>
+</ion-content>
